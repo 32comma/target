@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rhythm Test</title>
+    <script>
+
+    </script>
+    <style>
+        html,
+        body {
+            background-color: black;
+            color: white;
+        }
+
+        .target {
+            border: 1px solid chartreuse;
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+            margin: 3px;
+            line-height: 100px;
+            text-align: center;
+        }
+
+        #box {
+            font-size: larger;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="target" id="target-1">
+        1
+    </div>
+    <div class="target" id="target-2">
+        2
+    </div>
+    <div class="target" id="target-3">
+        3
+    </div>
+    <div class="target" id="target-4">
+        4
+    </div>
+    <div class="target" id="target-5">
+        5
+    </div>
+    <div class="target" id="target-6">
+        6
+    </div>
+    <div class="target" id="target-7">
+        7
+    </div>
+    <div class="target" id="target-8">
+        8
+    </div>
+    <div class="target" id="target-9">
+        9
+    </div>
+    <div id="box">
+
+    </div>
+    <script>
+        setInterval(function () {
+            target = document.getElementById(`target-${parseInt(Math.random() * 9 + 1)}`);
+            target.style = 'background-color:chartreuse';
+            setTimeout(function (e) {
+                target.style = 'background-color:black';
+            }, 2000);
+        }, 3000)
+        var elements = document.getElementsByClassName('target');
+        for (var i = 0; i < elements.length; i++) {
+            elements[i].addEventListener('click', function (e) {
+                if (e.target.style.cssText.includes('chartreuse')) {
+                    e.target.style = 'background-color:black';
+                    document.getElementById('box').innerHTML += "*";
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
